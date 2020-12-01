@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 0b32ed2393609c047a375c3f06d413c3
+  m_SerializeEntries:
+  - m_GUID: 32afd7f684306fa48baf8c1f4006bee5
+    m_Address: Addressables/_utter.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: 32afd7f684306fa48baf8c1f4006bee5, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 32afd7f684306fa48baf8c1f4006bee5, type: 3}
+  - m_GUID: 836b47c6dde0c1540baf596d2f1f906e
+    m_Address: Addressables/_orn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: 836b47c6dde0c1540baf596d2f1f906e, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 836b47c6dde0c1540baf596d2f1f906e, type: 3}
+  - m_GUID: a264d422145a7114ea7b6f0cd2b3fa69
+    m_Address: Addressables/_heat.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: a264d422145a7114ea7b6f0cd2b3fa69, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: a264d422145a7114ea7b6f0cd2b3fa69, type: 3}
+  - m_GUID: c6920834a66b7bf4aafae79ad8153f65
+    m_Address: Addressables/_ushrooms.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: c6920834a66b7bf4aafae79ad8153f65, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: c6920834a66b7bf4aafae79ad8153f65, type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: d72ede29b514d1e45a7c6be4c7f30dbf, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c5a874d75088c60489320e3aa2795380, type: 2}
+    - {fileID: 11400000, guid: a162b6e46e4480e458b15d616a4eae90, type: 2}
