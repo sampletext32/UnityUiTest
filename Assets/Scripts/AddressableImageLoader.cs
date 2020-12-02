@@ -3,45 +3,39 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
-    public class AddressableImageLoader : MonoBehaviour, IImageLoader
+    [RequireComponent(typeof(Image))]
+    public class AddressableImageLoader : MonoBehaviour
     {
-        public Texture2D Texture { get; set; }
+        private Image _image;
 
-        public string AddressableName { get; set; }
+        public string AddressableName;
 
-        public AddressableImageLoader(string addressableName)
+        private Rotator _rotator;
+
+        public void Start()
         {
-            AddressableName = addressableName;
+            _image = GetComponent<Image>();
+            _rotator = gameObject.AddComponent<Rotator>();
+            StartCoroutine(LoadImage());
         }
 
-        private async Task<Texture2D> LoadInternal()
+        private IEnumerator LoadImage()
         {
-            var handle = Addressables.LoadAssetAsync<Texture2D>(AddressableName);
-            await handle.Task;
+            var asyncOperation = Addressables.LoadAssetAsync<Texture2D>($"Addressables/{AddressableName}");
+            yield return asyncOperation;
 
-            Texture2D texture = null;
+            var texture = asyncOperation.Result;
 
-            if (handle.Status == AsyncOperationStatus.Succeeded)
-            {
-                texture = handle.Result;
-                Addressables.Release(handle);
-            }
+            var sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
 
-            return texture;
-        }
+            _image.sprite = sprite;
 
-        public async Task Load()
-        {
-            Texture = await LoadInternal();
-        }
-
-        public async Task<Texture2D> Get()
-        {
-            await Load();
-            return Texture;
+            _rotator.Reset();
+            Destroy(_rotator);
         }
     }
 }

@@ -59,12 +59,14 @@ namespace Assets.Scripts
             if (webRequest.isNetworkError || webRequest.isHttpError)
             {
                 Debug.Log(webRequest.error);
+                _loadedSprites[url] = Sprite.Create(new Texture2D(2, 2), new Rect(0, 0, 2, 2), new Vector2(0.5f, 0.5f));
             }
             else
             {
                 Debug.Log("Request successful");
                 Texture2D texture = DownloadHandlerTexture.GetContent(webRequest);
-                _loadedSprites[url] = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(.5f, .5f));
+                _loadedSprites[url] = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
+                    new Vector2(.5f, .5f));
             }
         }
     }
