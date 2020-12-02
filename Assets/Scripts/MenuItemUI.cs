@@ -36,7 +36,10 @@ public class MenuItemUI : MonoBehaviour
         UserNameText.text = saleItem.UserData.Nickname;
         UserStarsText.text = saleItem.UserData.Lvl.ToString();
 
-        var imageLoader = ItemThumbnail.AddComponent<AddressableImageLoader>();
-        imageLoader.AddressableName = ItemToAddressable.GetAddressableByItemName(saleItem.ItemData.Name);
+        var itemImageLoader = ItemThumbnail.AddComponent<AddressableImageLoader>();
+        itemImageLoader.AddressableName = ItemToAddressable.GetAddressableByItemName(saleItem.ItemData.Name);
+
+        var userImageLoader = UserThumbnail.AddComponent<UrlImageLoader>();
+        userImageLoader.Url = saleItem.UserData.ImageUrl;
     }
 }

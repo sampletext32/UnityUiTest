@@ -5,22 +5,22 @@ namespace DataManagers
 {
     public class ItemToAddressable
     {
-        private static Dictionary<string, string> Items = new Dictionary<string, string>()
+        private static Dictionary<string, string> _items = new Dictionary<string, string>()
         {
-            ["Кукуруза"] = "_orn.png",
-            ["Масло"] = "_utter.png",
-            ["Грибы"] = "_ushrooms.png",
-            ["Сахарный тростник"] = "_heat.png",
-            ["Томат"] = "_omato.png"
+            ["Кукуруза"] = "Corn.png",
+            ["Масло"] = "Butter.png",
+            ["Грибы"] = "Mushrooms.png",
+            ["Сахарный тростник"] = "Wheat.png",
+            ["Томат"] = "Tomato.png"
         };
 
         public static string GetAddressableByItemName(string itemName)
         {
-            if (!Items.ContainsKey(itemName))
+            if (!_items.ContainsKey(itemName))
             {
                 throw new IndexOutOfRangeException($"{itemName} is unknown addressable");
             }
-            return Items[itemName];
+            return _items[itemName];
         }
     }
 }

@@ -5,8 +5,8 @@ namespace Models
     [Serializable]
     public class SaleItem
     {
-        public ItemData ItemData { get; }
-        public UserData UserData { get; }
+        public ItemData ItemData { get; set; }
+        public UserData UserData { get; set; }
 
         public SaleItem()
         {
