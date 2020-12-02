@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.UI;
 
-namespace Assets.Scripts
+namespace Misc
 {
     public class ImageLoadingPool : MonoBehaviour
     {
@@ -16,7 +11,7 @@ namespace Assets.Scripts
 
         private Dictionary<string, Sprite> _loadedSprites;
 
-        private void Start()
+        private void Awake()
         {
             Instance = this;
             _loadedSprites = new Dictionary<string, Sprite>();

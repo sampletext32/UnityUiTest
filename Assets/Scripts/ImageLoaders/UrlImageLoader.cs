@@ -1,11 +1,9 @@
 ﻿using System.Collections;
-using System.Net;
-using System.Threading.Tasks;
+using Misc;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.UI;
 
-namespace Assets.Scripts
+namespace ImageLoaders
 {
     [RequireComponent(typeof(Image))]
     public class UrlImageLoader : MonoBehaviour

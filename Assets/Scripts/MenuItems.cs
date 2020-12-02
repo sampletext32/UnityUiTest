@@ -1,5 +1,8 @@
-﻿using Assets.Scripts;
+﻿using System.Collections;
+using System.Collections.Generic;
+using Models;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class MenuItems : MonoBehaviour
 {
@@ -15,14 +18,38 @@ public class MenuItems : MonoBehaviour
     [Header("Column Container Element, used for resizing")]
     public RectTransform ContentRoot;
 
-    // Start is called before the first frame update
-    void Start()
+    private List<SaleItem> _saleItems;
+
+    public void AddItem(SaleItem item)
     {
+
     }
 
-    // Update is called once per frame
-    void Update()
+    // Start is called before the first frame update
+    private void Start()
     {
-        
+        StartCoroutine(LoadItems());
+    }
+
+    private IEnumerator LoadItems()
+    {
+        string url = "";
+
+        UnityWebRequest webRequest = UnityWebRequest.Get(url);
+
+        var asyncOperation = webRequest.SendWebRequest();
+
+        yield return asyncOperation;
+
+        if (webRequest.isNetworkError || webRequest.isHttpError)
+        {
+            Debug.Log(webRequest.error);
+        }
+        else
+        {
+            Debug.Log("Request successful");
+            var jsonData = webRequest.downloadHandler.text;
+            _saleItems = JsonUtility.FromJson<List<SaleItem>>(jsonData);
+        }
     }
 }
